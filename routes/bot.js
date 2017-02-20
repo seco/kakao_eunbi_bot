@@ -15,10 +15,16 @@ router.post('/message', (req, res) => {
 	let type = req.body.type;
 	let content = req.body.content;
 
+	bot.selectMenu(req, content);
 });
 
 router.post('/friend', (req, res) => {
+	let user_key = req.body.user_key;
+	console.log('${user_key}님이 채팅방에 참가했습니다.');
 
+	res.set({
+		'content-type': 'application/json'
+	}).send(JSON.stringify({success: true}));
 });
 
 router.delete('/friend', (req, res) => {
