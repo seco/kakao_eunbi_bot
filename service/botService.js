@@ -1,5 +1,6 @@
-const message = require('./message');
+"use strict"
 
+const message = require('./message');
 let bot = {};
 
 bot.selectMenu = (req, content) => {

@@ -1,5 +1,6 @@
-let message = {};
+"use strict"
 
+let message = {};
 message.buttons = ['밥집', '술집', '치킨집'];
 
 message.buttonsType = () => {
