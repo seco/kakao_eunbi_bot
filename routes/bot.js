@@ -6,7 +6,7 @@ const
 	message = require('../service/message'),
 	bot = require('../service/botService');
 
-router.get('/keyboard', function(req, res) {
+router.get('/keyboard', (req, res) => {
 	res.set({
 		'content-type': 'application/json'
 	}).send(JSON.stringify(message.buttonsType()));
