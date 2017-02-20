@@ -54,8 +54,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen('3000', function() {
-    console.log('server on!');
-});
-
 module.exports = app;
