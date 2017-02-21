@@ -26,3 +26,5 @@ bot.selectMenu = (content) => {
             break;
     }
 }
+
+module.exports = bot;
