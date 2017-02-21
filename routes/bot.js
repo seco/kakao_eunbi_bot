@@ -13,6 +13,7 @@ router.get('/keyboard', (req, res) => {
 });
 
 router.post('/message', (req, res) => {
+	console.log('req.body', req.body);
 	let user_key = req.body.user_key;
 	let type = req.body.type;
 	let content = req.body.content;
@@ -20,6 +21,7 @@ router.post('/message', (req, res) => {
 	bot.selectMenu(req, content), (err, result) => {
 		if (err) throw err
 
+		console.log('result', result);
 		res.set({
 			'content-type': 'application/json'
 		}).send(JSON.stringify(result));

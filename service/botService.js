@@ -7,23 +7,17 @@ bot.selectMenu = (req, content) => {
     switch (content) {
         case message.buttons[0]: //밥집
             return message.baseType(`
-                'aa': '1',
-                'bb': '2',
-                'cc': '3'
+                bab zip
             `);
             break;
         case message.buttons[1]: //술집
             return message.baseType(`
-                'dd': '11',
-                'ee': '12',
-                'ff': '13'
+                sul zip
             `);
             break;
         case message.buttons[2]: //치킨집
             return message.baseType(`
-                'gg': '21',
-                'hh': '22',
-                'ii': '23'
+                chicken zip
             `);
             break;
         case '돌아가기':
