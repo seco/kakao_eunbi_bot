@@ -17,12 +17,18 @@ router.post('/message', (req, res) => {
 	let type = req.body.type;
 	let content = req.body.content;
 
-	bot.selectMenu(req, content);
+	bot.selectMenu(req, content), (err, result) => {
+		if (err) throw err
+
+		res.set({
+			'content-type': 'application/json'
+		}).send(JSON.stringify(result));
+	};
 });
 
 router.post('/friend', (req, res) => {
 	let user_key = req.body.user_key;
-	console.log('${user_key}님이 채팅방에 참가했습니다.');
+	console.log(user_key, '님이 채팅방에 참가했습니다.');
 
 	res.set({
 		'content-type': 'application/json'
@@ -31,7 +37,7 @@ router.post('/friend', (req, res) => {
 
 router.delete('/friend/:user_key', (req, res) => {
 	let user_key = req.body.user_key;
-	console.log('${user_key}님이 채팅방을 차단했습니다.');
+	console.log(user_key, '님이 채팅방을 차단했습니다.');
 
 	res.set({
 		'content-type': 'application/json'
@@ -40,7 +46,7 @@ router.delete('/friend/:user_key', (req, res) => {
 
 router.delete('/chat_room/:user_key', (req, res) => {
 	let user_key = req.body.user_key;
-	console.log('${user_key}님이 채팅방을 나갔습니다.');
+	console.log(user_key, '님이 채팅방을 나갔습니다.');
 
 	res.set({
 		'content-type': 'application/json'
