@@ -4,6 +4,7 @@ const message = require('./message');
 let bot = {};
 
 bot.selectMenu = (req, content, callback) => {
+    console.log('content', content);
     switch (content) {
         case message.buttons[0]: //밥집
             callback(message.baseType(`
