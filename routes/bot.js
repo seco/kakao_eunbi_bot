@@ -6,7 +6,10 @@ const
 	message = require('../service/message'),
 	bot = require('../service/botService');
 
+console.log('are you there?');
+
 router.get('/keyboard', function(req, res) {
+	console.log('in /keyboard');
 	res.set({
 		'content-type': 'application/json'
 	}).send(JSON.stringify(message.buttonsType()));
