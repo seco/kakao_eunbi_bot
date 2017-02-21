@@ -29,7 +29,7 @@ router.post('/friend', (req, res) => {
 	}).send(JSON.stringify({success: true}));
 });
 
-router.delete('/friend', (req, res) => {
+router.delete('/friend/:user_key', (req, res) => {
 	let user_key = req.body.user_key;
 	console.log('${user_key}님이 채팅방을 차단했습니다.');
 
