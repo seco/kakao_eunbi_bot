@@ -18,9 +18,7 @@ router.post('/message', (req, res) => {
 	let type = req.body.type;
 	let content = req.body.content;
 
-	bot.selectMenu(req, content), (err, result) => {
-		if (err) throw err
-
+	bot.selectMenu(req, content), (result) => {
 		console.log('result', result);
 		res.set({
 			'content-type': 'application/json'

@@ -3,22 +3,22 @@
 const message = require('./message');
 let bot = {};
 
-bot.selectMenu = (req, content) => {
+bot.selectMenu = (req, content, callback) => {
     switch (content) {
         case message.buttons[0]: //밥집
-            return message.baseType(`
+            callback(message.baseType(`
                 bab zip
-            `);
+            `));
             break;
         case message.buttons[1]: //술집
-            return message.baseType(`
+            callback(message.baseType(`
                 sul zip
-            `);
+            `));
             break;
         case message.buttons[2]: //치킨집
-            return message.baseType(`
+            callback(message.baseType(`
                 chicken zip
-            `);
+            `));
             break;
         case '돌아가기':
             break;
