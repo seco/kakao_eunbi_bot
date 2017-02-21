@@ -18,12 +18,11 @@ router.post('/message', (req, res) => {
 	let type = req.body.type;
 	let content = req.body.content;
 
-	bot.selectMenu(req, content, (result) => {
-		console.log('result', result);
-		res.set({
-			'content-type': 'application/json'
-		}).send(JSON.stringify(result));
-	});
+	let reply = bot.selectMenu(content)
+	console.log('reply', reply);
+	res.set({
+		'content-type': 'application/json'
+	}).send(JSON.stringify(reply));
 });
 
 router.post('/friend', (req, res) => {
