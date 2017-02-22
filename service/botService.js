@@ -5,23 +5,26 @@ let bot = {};
 
 bot.selectMenu = (req, content, callback) => {
     switch (content) {
-        case message.buttons[0]: //밥집
-            req.cache.hgetall('bab', (err, results) => {
+        case message.buttons[0]: //아빠
+            req.cache.hgetall('dad', (err, results) => {
                 console.log('results', results);
                 callback(err, results);
             });
             break;
-        case message.buttons[1]: //술집
-            req.cache.hgetall('sul', (err, results) => {
+        case message.buttons[1]: //엄마
+            req.cache.hgetall('mom', (err, results) => {
                 callback(err, results);
             });
             break;
-        case message.buttons[2]: //치킨집
-            req.cache.hgetall('chick', (err, results) => {
+        case message.buttons[2]: //은비
+            req.cache.hgetall('eunbi', (err, results) => {
                 callback(err, results);
             });
             break;
-        case message.buttons[3]: //추가요청
+        case message.buttons[3]: //아리
+            req.cache.hgetall('ari', (err, results) => {
+                callback(err, results);
+            });
             break;
     }
 }
