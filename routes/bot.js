@@ -27,7 +27,7 @@ router.post('/message', (req, res) => {
 		let str = '';
 		str += '-' + content + '-' + '\n';
 		for (let key in results) {
-			str += result + ' : ' + results[key] + '\n';
+			str += key + ' : ' + results[key] + '\n';
 		}
 
 		console.log('str', str);
