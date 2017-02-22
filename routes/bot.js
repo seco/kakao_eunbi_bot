@@ -6,6 +6,8 @@ const
 	message = require('../service/message'),
 	bot = require('../service/botService');
 
+require('../database/redis')(router);
+
 router.get('/keyboard', (req, res) => {
 	res.set({
 		'content-type': 'application/json'
@@ -18,11 +20,21 @@ router.post('/message', (req, res) => {
 	let type = req.body.type;
 	let content = req.body.content;
 
-	let reply = bot.selectMenu(content);
-	console.log('reply', reply);
-	res.set({
-		'content-type': 'application/json'
-	}).send(JSON.stringify(reply));
+	bot.selectMenu(req, content, (err, results) => {
+		if (err) throw err;
+		
+		let str = '';
+		str += '-' + content + '-' + '\n';
+		for (key in results) {
+			str += result + ' : ' + results[key] + '\n';
+		}
+
+		let msg = message.baseType(str);
+
+		res.set({
+			'content-type': 'application/json'
+		}).send(JSON.stringify(msg));
+	});
 });
 
 router.post('/friend', (req, res) => {
@@ -31,7 +43,7 @@ router.post('/friend', (req, res) => {
 
 	res.set({
 		'content-type': 'application/json'
-	}).send(JSON.stringify({success: true}));
+	}).send(JSON.stringify({ success: true }));
 });
 
 router.delete('/friend/:user_key', (req, res) => {
@@ -40,7 +52,7 @@ router.delete('/friend/:user_key', (req, res) => {
 
 	res.set({
 		'content-type': 'application/json'
-	}).send(JSON.stringify({success: true}));
+	}).send(JSON.stringify({ success: true }));
 });
 
 router.delete('/chat_room/:user_key', (req, res) => {
@@ -49,7 +61,7 @@ router.delete('/chat_room/:user_key', (req, res) => {
 
 	res.set({
 		'content-type': 'application/json'
-	}).send(JSON.stringify({success: true}));
+	}).send(JSON.stringify({ success: true }));
 });
 
 module.exports = router;
