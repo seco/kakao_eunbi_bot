@@ -33,5 +33,5 @@ module.exports = (router) => {
 		next();
 	});
 
-	//client.unref();
+	client.unref();
 };

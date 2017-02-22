@@ -19,8 +19,6 @@ router.post('/message', (req, res) => {
 	let type = req.body.type;
 	let content = req.body.content;
 
-	console.log('req.cache', req.cache, '\n' + req.cache.client);
-
 	bot.selectMenu(req, content, (err, results) => {
 		if (err) throw err;
 
