@@ -7,7 +7,6 @@ bot.selectMenu = (req, content, callback) => {
     switch (content) {
         case message.buttons[0]: //아빠
             req.cache.hgetall('dad', (err, results) => {
-                console.log('results', results);
                 callback(err, results);
             });
             break;

@@ -22,19 +22,13 @@ router.post('/message', (req, res) => {
 	bot.selectMenu(req, content, (err, results) => {
 		if (err) throw err;
 
-		console.log('results', results);
-		
 		let str = '';
 		str += '-' + content + '-' + '\n';
 		for (let key in results) {
 			str += key + ' : ' + results[key] + '\n';
 		}
 
-		console.log('str', str);
-
 		let msg = message.baseType(str);
-
-		console.log('msg', msg);
 
 		res.set({
 			'content-type': 'application/json'
