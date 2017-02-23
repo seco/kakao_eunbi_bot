@@ -1,7 +1,7 @@
 "use strict"
 
 let message = {};
-message.buttons = ['아빠', '엄마', '은비', '아리'];
+message.buttons = ['아빠', '엄마', '은비', '아리', '계좌추가'];
 
 message.buttonsType = () => {
     return {

@@ -25,7 +25,16 @@ bot.selectMenu = (req, content, callback) => {
                 callback(err, results);
             });
             break;
+        case message.buttons[4]: //계좌추가
+            req.cache.hgetall('ari', (err, results) => {
+                callback(err, results);
+            });
+            break;
     }
+}
+
+bot.addAccount = (callback) => {
+    
 }
 
 module.exports = bot;
