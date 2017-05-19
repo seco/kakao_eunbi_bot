@@ -29,7 +29,7 @@ router.post('/message', (req, res) => {
 		for (let key in results) {
 			str += key + ' : ' + results[key] + '\n';
 			
-			if (content == 'info')
+			if (content == '기타 정보')
 				str += '\n';
 		}
 
