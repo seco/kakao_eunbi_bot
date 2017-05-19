@@ -28,6 +28,9 @@ router.post('/message', (req, res) => {
 		str += '-' + content + '-' + '\n';
 		for (let key in results) {
 			str += key + ' : ' + results[key] + '\n';
+			
+			if (content == 'info')
+				str += '\n';
 		}
 
 		let msg = message.baseType(str);
